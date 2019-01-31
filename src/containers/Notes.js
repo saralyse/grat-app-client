@@ -4,6 +4,7 @@ import { FormGroup, FormControl, ControlLabel, ListGroup, ListGroupItem } from "
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import { s3Upload } from "../libs/awsLib";
+import Moment from "react-moment";
 import "./Notes.css";
 
 export default class Notes extends Component {
@@ -136,26 +137,17 @@ export default class Notes extends Component {
     }
   }
 
-  renderInputs() {
-    return (
-      <div className="readNote">
-        <ListGroup varient="flush">
-          <ListGroupItem>{this.state.inputOne}</ListGroupItem>
-          <ListGroupItem>{this.state.inputTwo}</ListGroupItem>
-          <ListGroupItem>{this.state.inputThree}</ListGroupItem>
-        </ListGroup>
-      </div>
-    );
-  }
-
-
   render() {
     return (
       <div className="Notes">
         {this.state.note &&
         <form onSubmit={this.handleSubmit}>
           <ListGroup varient="flush" controlId="viewNote">
-            <h5 className="viewNoteHeader">entry from {this.state.createdDate}:</h5>
+            <h5 className="viewNoteHeader">
+              <Moment format="MMMM Do YYYY">
+                {this.state.createdDate}
+              </Moment>
+            </h5>
             <p>on this day, I was grateful for...</p>
             <ListGroupItem>- {this.state.inputOne}</ListGroupItem>
             <ListGroupItem>- {this.state.inputTwo}</ListGroupItem>
