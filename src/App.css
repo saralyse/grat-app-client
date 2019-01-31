@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  margin-top: 15px;
+  color: black;
+}
+
+.App-logo {
+  height: 15vmin;
+  margin: 0 auto;
+}
+
+.App .navbar {
+  background: none;
+  border: none;
+  color: #000000;
+}
+
+.App .navbar-brand {
+  font-family: "Lora", serif;
+  font-size: 26px;
+  letter-spacing: 0.05rem;
+  color: rgb(27, 27, 27);
+  text-align: center;
+  background: none;
+  display: flex;
+  align-items: center;
+}
+
+.App .nav-logo {
+  margin: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .App .nav-logo {
+    display: none;
+  }
+
+  .App .App-logo {
+    margin-top: 20px;
+  }
+}
