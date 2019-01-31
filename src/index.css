@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "BigRiverScript";
+  src: url("/grat-client/public/fonts/BigRiverScript.otf")format("opentype"),
+  url("/grat-client/public/fonts/BigRiverScript.woff")format("woff"),
+  url("/grat-client/public/fonts/BigRiverScript.woff2")format("woff2");
+}
+
 body {
   margin: 0;
   padding: 0;

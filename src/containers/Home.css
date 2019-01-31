@@ -6,8 +6,9 @@
 }
 
 .Home .lander h1 {
-  font-family: "Lora", serif;
-  font-size: calc(10px + 2vmin);
+  font-family: "BigRiverScript", cursive;
+  font-size: calc(10px + 3.5vmin);
+  padding: 10px;
 }
 
 .Home .lander div {
@@ -40,8 +41,10 @@
 }
 
 .Home .notes h1 {
-  font-size: calc(10px + 6vmin);
-  font-family: "Sacramento", cursive;
+  font-size: calc(10px + 3.5vmin);
+  font-family: "BigRiverScript", cursive;
+  margin-left: 28px;
+  padding-top: 25px;
 }
 
 .Home .notes h4 {
