@@ -65,7 +65,7 @@ export default class Home extends Component {
     return(
       <div className="lander">
         <h1>what are you grateful for today?</h1>
-        <p>be grateful.</p>
+        <p>be grateful. blah blah blah</p>
         <div>
           <Link to="/login" className="btn btn-lg">
             login
