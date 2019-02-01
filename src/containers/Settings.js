@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 import { Elements, StripeProvider } from "react-stripe-elements";
+import LoaderButton from "../components/LoaderButton"
 import BillingForm from "../components/BillingForm";
 import config from "../config";
 import "./Settings.css";
@@ -14,6 +16,7 @@ export default class Settings extends Component {
     };
   }
 
+  /// set up billing functions
   billUser(details) {
     return API.post("notes", "/billing", {
       body: details
@@ -45,14 +48,32 @@ export default class Settings extends Component {
   render() {
     return (
       <div className="Settings">
-        <StripeProvider apiKey={config.STRIPE_KEY}>
-          <Elements>
-            <BillingForm
-              loading={this.state.isLoading}
-              onSubmit={this.handleFormSubmit}
+        <div className="userSettings">
+          <LinkContainer to="/settings/email">
+            <LoaderButton
+              block
+              bsSize="large"
+              text="Change Email"
             />
-          </Elements>
-        </StripeProvider>
+          </LinkContainer>
+          <LinkContainer to="/settings/password">
+            <LoaderButton
+              block
+              bsSize="large"
+              text="Change Password"
+            />
+          </LinkContainer>
+      </div>
+        <div className="billingSettings">
+          <StripeProvider apiKey={config.STRIPE_KEY}>
+            <Elements>
+              <BillingForm
+                loading={this.state.isLoading}
+                onSubmit={this.handleFormSubmit}
+              />
+            </Elements>
+          </StripeProvider>
+        </div>
       </div>
     );
   }
