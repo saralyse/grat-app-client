@@ -1,0 +1,41 @@
+.LoaderButton {
+  background: none;
+  border: 2px solid #276257;
+  color: #276257;
+  border-radius: 20px;
+  margin: 0 auto;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 26px;
+  letter-spacing: .1rem;
+  width: 20vw;
+}
+
+.LoaderButton:hover {
+  background-color: #276257;
+  color: white;
+  border: 2px solid #276257;
+}
+
+.LoaderButton[disabled]:hover {
+  background: none;
+  color: #b56651;
+  border: 2px solid #b56651;
+}
+
+.LoaderButton .spinning.glyphicon {
+  margin-right: 7px;
+  top: 2px;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1) rotate(360deg); }
+}
+
+@media only screen and (max-width: 600px) {
+  .LoaderButton {
+    width: 80vw;
+  }
+}
