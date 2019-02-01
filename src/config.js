@@ -1,4 +1,5 @@
 const dev = {
+  STRIPE_KEY: "pk_test_AFK62EhDOCPeSRWvpB5TdBnD",
   s3: {
     REGION: "us-east-1",
     BUCKET: "grat-app-api-dev-attachmentsbucket-nehjjfowddzx"
@@ -16,6 +17,7 @@ const dev = {
 };
 
 const prod = {
+  STRIPE_KEY: "pk_test_AFK62EhDOCPeSRWvpB5TdBnD",
   s3: {
     REGION: "us-east-1",
     BUCKET: "grat-app-api-prod-attachmentsbucket-1kn5qo0jamvkr"
