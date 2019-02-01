@@ -47,6 +47,7 @@ class App extends Component {
       isAuthenticated: this.state.isAuthenticated,
       userHasAuthenticated: this.userHasAuthenticated
     };
+
     return (
       !this.state.isAuthenticating &&
       <div className="App container">
@@ -69,7 +70,12 @@ class App extends Component {
           <Navbar.Collapse>
             <Nav pullRight>
               {this.state.isAuthenticated
-                ? <NavItem onClick={this.handleLogout}>logout</NavItem>
+                ? <Fragment>
+                    <LinkContainer to="/settings">
+                      <NavItem>settings</NavItem>
+                    </LinkContainer>
+                    <NavItem onClick={this.handleLogout}>logout</NavItem>
+                  </Fragment>
                 : <Fragment>
                     <LinkContainer to="/signup">
                       <NavItem>signup</NavItem>
