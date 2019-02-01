@@ -7,7 +7,7 @@ import NewNote from "./containers/NewNote";
 import Notes from "./containers/Notes";
 import Settings from "./containers/Settings";
 import NotFound from "./containers/NotFound";
-//import ResetPassword from "./containers/ResetPassword";
+import ResetPassword from "./containers/ResetPassword";
 import AppliedRoute from "./components/AppliedRoute";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
@@ -21,7 +21,7 @@ export default ({ childProps }) =>
     <AuthenticatedRoute path="/settings" exact component={Settings} props={childProps} />
     <AuthenticatedRoute path="/notes/new" exact component={NewNote} props={childProps} />
     <AuthenticatedRoute path="/notes/:id" exact component={Notes} props={childProps} />
-    { /* <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} props={childProps} /> */ }
+    <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} props={childProps} />
     { /* catch all unmatched routes */ }
     <Route component={NotFound} />
   </Switch>;
