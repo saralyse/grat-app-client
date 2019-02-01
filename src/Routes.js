@@ -12,6 +12,7 @@ import AppliedRoute from "./components/AppliedRoute";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
 import ChangePassword from "./containers/ChangePassword";
+import ChangeEmail from "./containers/ChangeEmail";
 
 
 export default ({ childProps }) =>
@@ -21,6 +22,7 @@ export default ({ childProps }) =>
     <UnauthenticatedRoute path="/signup" exact component={Signup} props={childProps} />
     <AuthenticatedRoute path="/settings" exact component={Settings} props={childProps} />
     <AuthenticatedRoute path="/settings/password" exact component={ChangePassword} props={childProps} />
+    <AuthenticatedRoute path="/settings/email" exact component={ChangeEmail} props={childProps} />
     <AuthenticatedRoute path="/notes/new" exact component={NewNote} props={childProps} />
     <AuthenticatedRoute path="/notes/:id" exact component={Notes} props={childProps} />
     <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} props={childProps} />
