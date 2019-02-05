@@ -40,7 +40,7 @@
 
 .NewNote form #file:focus + .uploadLabel,
 .NewNote form #file + .uploadLabel:hover {
-  background-color: #e9d4cd;
+  background-color: #e9d4cd33;
   cursor: pointer;
 }
 
