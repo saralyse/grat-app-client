@@ -1,5 +1,30 @@
 .SettingsDropdown {
   display: none;
+  padding-bottom: 40px;
+  margin-left: 18px;
+}
+
+.SettingsDropdown li {
+  list-style: none;
+  padding: 10px;
+}
+
+.SettingsDropdown ul.dropdown-menu {
+  position: relative;
+  padding-left: 10px;
+}
+
+.SettingsDropdown li.active a{
+  color: #b56651;
+  text-decoration: #e9d4cd;
+  background: none;
+}
+
+.SettingsDropdown a {
+  color: #276257;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 500px) {

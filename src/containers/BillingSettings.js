@@ -4,6 +4,7 @@ import { Elements, StripeProvider } from "react-stripe-elements";
 import BillingForm from "../components/BillingForm";
 import config from "../config";
 import "./BillingSettings.css";
+import SettingsDropdown from "../components/SettingsDropdown";
 
 
 export default class Settings extends Component {
@@ -46,16 +47,21 @@ export default class Settings extends Component {
 
   render() {
     return (
-      <div className="BillingSettings">
-        <StripeProvider apiKey={config.STRIPE_KEY}>
-          <Elements>
-            <BillingForm
+      <div>
+        <div className="mobile-settings">
+          <SettingsDropdown />
+        </div>
+        <div className="BillingSettings"> 
+          <StripeProvider apiKey={config.STRIPE_KEY}>
+            <Elements>
+              <BillingForm
               loading={this.state.isLoading}
               onSubmit={this.handleFormSubmit}
-            />
-          </Elements>
-        </StripeProvider>
+              />
+            </Elements>
+          </StripeProvider>
         </div>
+      </div> 
     );
   }
 }

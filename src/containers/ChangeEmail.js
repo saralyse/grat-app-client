@@ -7,6 +7,7 @@ import {
   ControlLabel
 } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import SettingsDropdown from "../components/SettingsDropdown";
 import "./ChangeEmail.css";
 
 
@@ -123,10 +124,15 @@ export default class ChangeEmail extends Component {
 
   render() {
     return (
-      <div className="ChangeEmail">
-        {!this.state.codeSent
-          ? this.renderUpdateForm()
-          : this.renderConfirmationForm()}
+      <div>
+        <div className="mobile-settings">
+          <SettingsDropdown />
+        </div>
+        <div className="ChangeEmail">
+          {!this.state.codeSent
+            ? this.renderUpdateForm()
+            : this.renderConfirmationForm()}
+        </div>
       </div>
     );
   }

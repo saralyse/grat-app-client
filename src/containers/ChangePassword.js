@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import SettingsDropdown from "../components/SettingsDropdown";
 import "./ChangePassword.css";
 
 export default class ChangePassword extends Component {
@@ -52,43 +53,48 @@ export default class ChangePassword extends Component {
 
   render() {
     return (
-      <div className="ChangePassword">
-        <form onSubmit={this.handleClickChange}>
-          <FormGroup bsSize="large" controlId="oldPassword">
-            <ControlLabel>current password</ControlLabel>
-            <FormControl
-              type="password"
-              onChange={this.handleChange}
-              value={this.state.oldPassword}
+      <div>
+        <div className="mobile-settings">
+          <SettingsDropdown />
+        </div>
+        <div className="ChangePassword">
+          <form onSubmit={this.handleClickChange}>
+            <FormGroup bsSize="large" controlId="oldPassword">
+              <ControlLabel>current password</ControlLabel>
+              <FormControl
+                type="password"
+                onChange={this.handleChange}
+                value={this.state.oldPassword}
+              />
+            </FormGroup>
+            <hr />
+            <FormGroup bsSize="large" controlId="password">
+              <ControlLabel>new password</ControlLabel>
+              <FormControl
+                type="password"
+                onChange={this.handleChange}
+                value={this.state.password}
+              />
+            </FormGroup>
+            <FormGroup bsSize="large" controlId="confirmPassword">
+              <ControlLabel>confirm password</ControlLabel>
+              <FormControl
+                type="password"
+                onChange={this.handleChange}
+                value={this.state.confirmPassword}
+              />
+            </FormGroup>
+            <LoaderButton
+              block
+              type="submit"
+              bsSize="large"
+              text="change password"
+              loadingText="changing..."
+              disabled={!this.validateForm()}
+              isLoading={this.state.isChanging}
             />
-          </FormGroup>
-          <hr />
-          <FormGroup bsSize="large" controlId="password">
-            <ControlLabel>new password</ControlLabel>
-            <FormControl
-              type="password"
-              onChange={this.handleChange}
-              value={this.state.password}
-            />
-          </FormGroup>
-          <FormGroup bsSize="large" controlId="confirmPassword">
-            <ControlLabel>confirm password</ControlLabel>
-            <FormControl
-              type="password"
-              onChange={this.handleChange}
-              value={this.state.confirmPassword}
-            />
-          </FormGroup>
-          <LoaderButton
-            block
-            type="submit"
-            bsSize="large"
-            text="change password"
-            loadingText="changing..."
-            disabled={!this.validateForm()}
-            isLoading={this.state.isChanging}
-          />
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
