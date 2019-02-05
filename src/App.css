@@ -7,6 +7,7 @@
 .App-logo {
   height: 15vmin;
   margin: 0 auto;
+  margin-top: 60px;
 }
 
 .App .navbar {
@@ -25,6 +26,27 @@
   display: flex;
   align-items: center;
 }
+
+.App .navbar-right a{
+  font-size: 14px;
+  margin-left: 25px;
+  border-radius: 5px;
+}
+
+.App .navbar-right .active a {
+  background: none;
+  font-weight: 500;
+  color: #276257;
+  background: none;
+  text-decoration: none;
+}
+
+.App .navbar-right a:focus {
+  font-weight: 600;
+}
+
+
+
 
 .App .nav-logo {
   margin: 10px;
