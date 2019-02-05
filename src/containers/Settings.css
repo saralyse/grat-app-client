@@ -3,13 +3,54 @@
     padding: 60px 0;
     margin: 0 auto;
   }
-
-  .Settings form {
-    margin: 0 auto;
-    max-width: 480px;
-  }
 }
 
-.Settings .LoaderButton:last-child {
-  margin-top: 15px;
+.Settings .settings-tab-menu {
+  display: inline-block;
+  margin: 0 auto;
+  width: 70vw;
+}
+
+.Settings ul {
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.Settings ul a {
+  color: #276257;
+}
+
+.Settings ul a:focus, .Settings ul a:hover {
+  background: #e9d4cd33;
+}
+
+.Settings .tab-content {
+  border-left: 1px solid lightgray;
+  margin: 0 auto;
+}
+
+/* mobile settings for dropdown */
+.Settings .settings-mobile-list {
+  border-top: 0.5px solid rgba(192, 192, 192, 0.899);
+  text-align: left;
+  margin: 10px;
+}
+
+.Settings .settings-mobile-list a {
+  display: inline-block;
+  padding: 16px;
+  color: #276257;
+  margin-left: 30px;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .Settings a {
+    text-align: center;
+  }
+
+  .Settings .tab-content {
+    border: none;
+  }
 }

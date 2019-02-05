@@ -1,11 +1,20 @@
 import React, { Component } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import { API } from "aws-amplify";
-import { Elements, StripeProvider } from "react-stripe-elements";
-import LoaderButton from "../components/LoaderButton"
-import BillingForm from "../components/BillingForm";
-import config from "../config";
+import MediaQuery from "react-responsive";
+import {
+  Nav,
+  NavItem,
+  TabContainer,
+  TabContent,
+  TabPane,
+  Row,
+  Col,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import ChangeEmail from "../containers/ChangeEmail";
+import ChangePassword from "../containers/ChangePassword";
+import BillingSettings from "../containers/BillingSettings";
 import "./Settings.css";
+import SettingsDropdown from "../components/SettingsDropdown";
 
 export default class Settings extends Component {
   constructor(props) {
@@ -16,64 +25,61 @@ export default class Settings extends Component {
     };
   }
 
-  /// set up billing functions
-  billUser(details) {
-    return API.post("notes", "/billing", {
-      body: details
-    });
-  }
-
-  handleFormSubmit = async (storage, { token, error }) => {
-    if (error) {
-      alert(error);
-      return;
-    }
-
-    this.setState({ isLoading: true });
-
-    try {
-      await this.billUser({
-        storage,
-        source: token.id
-      });
-
-      alert("Your card has been successfully processed!");
-      this.props.history.push("/");
-    } catch (e) {
-      alert(e);
-      this.setState({ isLoading: false });
-    }
-  }
-
   render() {
     return (
       <div className="Settings">
-        <div className="userSettings">
-          <LinkContainer to="/settings/email">
-            <LoaderButton
-              block
-              bsSize="large"
-              text="Change Email"
-            />
-          </LinkContainer>
-          <LinkContainer to="/settings/password">
-            <LoaderButton
-              block
-              bsSize="large"
-              text="Change Password"
-            />
-          </LinkContainer>
-      </div>
-        <div className="billingSettings">
-          <StripeProvider apiKey={config.STRIPE_KEY}>
-            <Elements>
-              <BillingForm
-                loading={this.state.isLoading}
-                onSubmit={this.handleFormSubmit}
-              />
-            </Elements>
-          </StripeProvider>
-        </div>
+        <MediaQuery maxDeviceWidth={500}>
+          {(matches) => {
+            if (matches) {
+              return (
+                <div className="settings-mobile">
+                  <SettingsDropdown />
+                  <div className="settings-mobile-list">
+                    <Link to="/settings/email">
+                      change your email address
+                    </Link>
+                    <Link to="/settings/password">
+                      update my password
+                    </Link>
+                    <Link to="/settings/billing">
+                      view my billings settings
+                    </Link>
+                  </div>
+                </div>
+                
+              );
+            } else {
+              return (
+                <div className="settings-tab-menu">
+                  <TabContainer id="settings-inner" defaultActiveKey="email">
+                    <Row>
+                      <Col sm={5}>
+                        <Nav className="flex-column settings-nav">
+                          <NavItem eventKey="email">update email</NavItem>
+                          <NavItem eventKey="password">change password</NavItem>
+                          <NavItem eventKey="billing">billing information</NavItem>
+                        </Nav>
+                      </Col>
+                      <Col sm={7}>
+                        <TabContent>
+                          <TabPane eventKey="email">
+                            <ChangeEmail />
+                          </TabPane>
+                          <TabPane eventKey="password">
+                            <ChangePassword />
+                          </TabPane>
+                          <TabPane eventKey="billing">
+                            <BillingSettings />
+                          </TabPane>
+                        </TabContent>
+                      </Col>
+                    </Row>
+                  </TabContainer>
+                </div>
+              );
+            }
+          }}
+        </MediaQuery>
       </div>
     );
   }
