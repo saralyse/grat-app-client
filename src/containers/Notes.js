@@ -143,15 +143,17 @@ export default class Notes extends Component {
         {this.state.note &&
         <form onSubmit={this.handleSubmit}>
           <ListGroup varient="flush" controlId="viewNote">
-            <h5 className="viewNoteHeader">
-              <Moment format="MMMM Do YYYY">
-                {this.state.createdDate}
-              </Moment>
-            </h5>
-            <p>on this day, I was grateful for...</p>
-            <ListGroupItem>- {this.state.inputOne}</ListGroupItem>
-            <ListGroupItem>- {this.state.inputTwo}</ListGroupItem>
-            <ListGroupItem>- {this.state.inputThree}</ListGroupItem>
+            <div className="entry-container container">
+              <h5 className="viewNoteHeader">
+                <Moment format="MMMM Do YYYY">
+                  {this.state.createdDate}
+                </Moment>
+              </h5>
+              <p>on this day, I was grateful for...</p>
+              <ListGroupItem>- {this.state.inputOne}</ListGroupItem>
+              <ListGroupItem>- {this.state.inputTwo}</ListGroupItem>
+              <ListGroupItem>- {this.state.inputThree}</ListGroupItem>
+            </div>
           </ListGroup>
           {this.state.note.attachment &&
           <FormGroup>
