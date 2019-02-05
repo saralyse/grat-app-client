@@ -35,18 +35,30 @@
 }
 
 @media only screen and (max-width: 600px) {
-
+  
   .Notes form {
     width: 80vw;
   }
 
-  .Notes p {
-    font-size: 14px;
+  .Notes .entry-container {
+    width: 100%;
+    padding: 0px;
+    border: none;
+    margin-top: 0px;
+  }
+
+  .Notes .entry-container p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    padding: 10px;
     letter-spacing: 0.1rem;
-    font-weight: 600;
   }
 
   .Notes h5 {
     padding-bottom: 5px;
+  }
+
+  .Notes form .list-group-item {
+    padding: 15px 0;
   }
 }
